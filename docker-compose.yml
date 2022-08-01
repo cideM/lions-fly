@@ -1,0 +1,21 @@
+version: "3.5"
+services:
+  app:
+    container_name: "lions"
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - sqlite:/usr/local/lib:rw
+    ports:
+      - "3555:3000"
+    environment:
+      - LITESTREAM_ACCESS_KEY_ID
+      - LITESTREAM_SECRET_ACCESS_KEY
+      - LITESTREAM_BUCKET
+      - LITESTREAM_REPLICATE_PATH
+      - LITESTREAM_RESTORE_PATH
+      - SQLITE_DB_PATH=/usr/local/lib/sqlite.db
+
+volumes:
+  sqlite:

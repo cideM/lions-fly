@@ -17,6 +17,8 @@
       {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
+            flyctl
+
             coreutils
             moreutils
             jq
